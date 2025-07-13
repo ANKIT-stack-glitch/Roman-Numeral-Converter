@@ -33,3 +33,25 @@ const toRoman = (num) => {
   }
   return result;
 };
+
+convertBtn.addEventListener("click", () => {
+  const inputVal = numberInput.value.trim();
+
+  if (inputVal === "") {
+    output.textContent = "Please enter a valid number";
+    return;
+  }
+
+  const num = parseInt(inputVal, 10);
+
+  if (isNaN(num)) {
+    output.textContent = "Please enter a valid number";
+  } else if (num < 1) {
+    output.textContent = "Please enter a number greater than or equal to 1";
+  } else if (num >= 4000) {
+    output.textContent = "Please enter a number less than or equal to 3999";
+  } else {
+    output.textContent = toRoman(num);
+  }
+});
+
